@@ -49,6 +49,9 @@ class ImageManager {
 	public function alterImageAndStoreIt($input)
 	{
 		$file = $this->Request->file('new_image');
+
+		//dd(exif_read_data($file));
+
 		$img = \Image::make($file);
 
 		$originalName = $input['new_image']->getClientOriginalName();
@@ -56,7 +59,7 @@ class ImageManager {
 		$this->saveFullsized($img, $originalName);
 		$this->saveThumbnail($img, $originalName);
 
-		$this->savePhoto($input, $originalName);
+		$this->savePhoto($input, $file, $originalName);
 
 		return $this->Redirect->route('homepage');
 	}
@@ -74,12 +77,16 @@ class ImageManager {
 		$image->save(public_path().'/img/blog/thumbs/'. $originalName);
 	}
 
-	private function savePhoto($input, $originalName)
+	private function savePhoto($input, $file, $originalName)
 	{
 		$photo = new $this->Photo;
 
+		$exif = exif_read_data($file);
+
 		$photo->name = $input['name'];
+		$photo->city = $input['city'];
 		$photo->description = $input['description'];
+		$photo->date_taken = date('Y-m-d H:i:s', $exif['FileDateTime']);
 		$photo->image_url = $originalName;
 
 		$photo->save();

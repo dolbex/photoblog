@@ -308,6 +308,9 @@
 		'templates.index' => array(
 			'human_name' => 'Homepage',
 			'extends' => 'layouts.master',
+			'vars' => array(
+				'photos' => 'App\Photoblog\Images\ImageRepository.getPhotos',
+			),
 		),
 		'templates.new-photo' => array(
 			'human_name' => 'New Photo',

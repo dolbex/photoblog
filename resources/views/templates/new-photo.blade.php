@@ -22,6 +22,11 @@
 			</div>
 
 			<div class="form-group">
+				<label>City</label>
+				{!! Form::input('text', 'city') !!}
+			</div>
+
+			<div class="form-group">
 				<label>description</label>
 				{!! Form::textarea('description') !!}
 			</div>

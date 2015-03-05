@@ -3,15 +3,6 @@
 @section('content')
 <div id="photo-header" style="background-image:url('img/fpo/atlanta.jpg');">
 
-	@if(DeviseUser::checkConditions('canAccessAdmin'))
-
-	{!! Form::open(['url' => URL::route('handle-upload'), 'method'=>'POST', 'files' => true]) !!}
-		{!! Form::input('file', 'new_image') !!}
-		{!! Form::submit('Save') !!}
-	{!! Form::close() !!}
-
-	@endif
-
 	<div class="content">
 		<p>Bacon ipsum dolor amet jowl pork chop ham hock turducken cow ham, andouille rump sausage venison. Brisket tenderloin pig pork chop meatball pork loin.</p>
 	</div>
@@ -20,41 +11,14 @@
 
 <div class="wide-content" id="photo-index">
 
+	@foreach($photos as $photo)
 	<div onclick="location.href='#'">
-		<img src="img/fpo/atlanta.jpg"><br>
-		<h3>Atlanta</h3>
-		<h5>December 28th, 2014</h5>
+		<img src="{{ URL::asset('img/blog/thumbs/' . $photo->image_url) }}"><br>
+		<h3 data-devise="$photo->name, text, Photo Name">{{ $photo->name }}</h3>
+		<h4>{{ $photo->city }}</h4>
+		<h5>{{ ($photo->date_taken) ? date("F jS, Y", strtotime($photo->date_taken)) : 'Unknown' }}</h5>
 	</div>
-
-	<div onclick="location.href='#'">
-		<img src="img/fpo/atlanta.jpg"><br>
-		<h3>Atlanta</h3>
-		<h5>December 28th, 2014</h5>
-	</div>
-
-	<div onclick="location.href='#'">
-		<img src="img/fpo/atlanta.jpg"><br>
-		<h3>Atlanta</h3>
-		<h5>December 28th, 2014</h5>
-	</div>
-
-	<div onclick="location.href='#'">
-		<img src="img/fpo/atlanta.jpg"><br>
-		<h3>Atlanta</h3>
-		<h5>December 28th, 2014</h5>
-	</div>
-
-	<div onclick="location.href='#'">
-		<img src="img/fpo/atlanta.jpg"><br>
-		<h3>Atlanta</h3>
-		<h5>December 28th, 2014</h5>
-	</div>
-
-	<div onclick="location.href='#'">
-		<img src="img/fpo/atlanta.jpg"><br>
-		<h3>Atlanta</h3>
-		<h5>December 28th, 2014</h5>
-	</div>
+	@endforeach
 </div>
 
 @stop

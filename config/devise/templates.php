@@ -309,7 +309,7 @@
 			'human_name' => 'Homepage',
 			'extends' => 'layouts.master',
 			'vars' => array(
-				'photos' => 'App\Photoblog\Images\ImageRepository.getPhotos',
+				'photos' => 'PhotoBlog\Images\ImageRepository.getPhotos',
 			),
 		),
 		'templates.new-photo' => array(

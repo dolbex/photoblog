@@ -1,6 +1,6 @@
-<?php namespace App\Photoblog\Images;
+<?php namespace PhotoBlog\Images;
 
-use App\Photo;
+use PhotoBlog\Photo;
 
 class ImageRepository {
 

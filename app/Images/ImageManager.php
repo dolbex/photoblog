@@ -1,8 +1,8 @@
-<?php namespace App\Photoblog\Images;
+<?php namespace PhotoBlog\Images;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
-use App\Photo;
+use PhotoBlog\Photo;
 
 class ImageManager {
 
@@ -14,7 +14,7 @@ class ImageManager {
 
 	/**
 	 * Photo Model
-	 * @var App\Photo
+	 * @var PhotoBlog\Photo
 	 */
 	private $Photo;
 
@@ -72,7 +72,9 @@ class ImageManager {
 	private function saveThumbnail($image, $originalName)
 	{
 		// now you are able to resize the instance
-		$image->resize(320, 240)->greyscale();
+		$image->fit(320, 240);
+
+		$image->greyscale();
 
 		$image->save(public_path().'/img/blog/thumbs/'. $originalName);
 	}

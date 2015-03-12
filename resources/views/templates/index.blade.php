@@ -14,7 +14,7 @@
 	@foreach($photos as $photo)
 	<div onclick="location.href='#'">
 		<img src="{{ URL::asset('img/blog/thumbs/' . $photo->image_url) }}"><br>
-		<h3 data-devise="$photo->name, text, Photo Name">{{ $photo->name }}</h3>
+		<h3 data-devise="$photo->name, Photo Name - $photo->id, Photo Name">{{ $photo->name }}</h3>
 		<h4>{{ $photo->city }}</h4>
 		<h5>{{ ($photo->date_taken) ? date("F jS, Y", strtotime($photo->date_taken)) : 'Unknown' }}</h5>
 	</div>

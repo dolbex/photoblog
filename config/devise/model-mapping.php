@@ -36,4 +36,16 @@
 			'Password' => 'text',
 		],
 	],
+	'PhotoBlog\Photo' =>
+	[
+		'picks' =>
+		[
+			'Name' => ['name' => 'text'],
+		],
+
+		'types' =>
+		[
+			'Name' => 'text',
+		],
+	],
 ];

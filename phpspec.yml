@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: App
-        psr4_prefix: App
+        namespace: PhotoBlog
+        psr4_prefix: PhotoBlog
         src_path: app

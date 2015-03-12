@@ -1,4 +1,4 @@
-<?php namespace App\Commands;
+<?php namespace PhotoBlog\Commands;
 
 abstract class Command {
 

@@ -1,4 +1,4 @@
-<?php namespace App\Console\Commands;
+<?php namespace PhotoBlog\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

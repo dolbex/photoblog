@@ -8,6 +8,8 @@
 
 	@yield('header-scripts')
 
+	@include('devise::styles')
+
 </head>
 
 <body>
@@ -17,6 +19,8 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 @yield('footer-scripts')
+
+	@include('devise::scripts')
 
 </body>
 </html>
